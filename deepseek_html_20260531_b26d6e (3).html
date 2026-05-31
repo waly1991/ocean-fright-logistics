@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ocean Freight Logistics | Marine Shipping & Freight Solutions</title>
+    <!-- Google Fonts: Inter + Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1e2a3e;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* DHL-inspired color palette */
+        :root {
+            --dhl-yellow: #FFCC00;
+            --dhl-red: #D40511;
+            --dhl-dark: #1C1C1C;
+            --dhl-gray: #2D2F31;
+            --dhl-light-gray: #F4F5F7;
+            --dhl-white: #FFFFFF;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--dhl-white);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--dhl-red) 0%, var(--dhl-dark) 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            color: var(--dhl-yellow);
+            background: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--dhl-dark);
+            transition: 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: var(--dhl-red);
+        }
+        .contact-btn {
+            background: var(--dhl-red);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 40px;
+        }
+        .contact-btn:hover {
+            background: #b0040e;
+            transform: scale(0.97);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background: linear-gradient(107deg, #0c1b2e 0%, #162b38 100%);
+            color: white;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/prrLJ84z/transport-logistics.jpg');
+            background-size: cover;
+            background-position: center 35%;
+            background-repeat: no-repeat;
+            opacity: 0.65;
+            z-index: 0;
+            transition: transform 0.3s ease;
+        }
+        /* Enhanced focus for the new rectangular image */
+        .hero-bg {
+            background-position: center 40%;
+            background-size: cover;
+        }
+        @media (min-width: 1600px) {
+            .hero-bg {
+                background-size: cover;
+                background-position: center 35%;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-position: center 30%;
+            }
+        }
+        .hero-overlay {
+            position: relative;
+            z-index: 2;
+            padding: 100px 0 110px;
+            width: 100%;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+        .hero-btn {
+            background: var(--dhl-yellow);
+            color: var(--dhl-dark);
+            border: none;
+            padding: 14px 32px;
+            font-weight: 700;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .hero-btn:hover {
+            background: #e6b800;
+            transform: translateY(-2px);
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dhl-dark);
+        }
+        .section-sub {
+            text-align: center;
+            color: #5a6874;
+            margin-bottom: 56px;
+            font-size: 1.1rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px 28px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid #edf2f7;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--dhl-yellow);
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: var(--dhl-red);
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .service-card p {
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        /* Tracking + Rate Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .track-card, .rate-card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #eef2f8;
+            transition: 0.2s;
+        }
+        .track-card h3, .rate-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .track-card i, .rate-card i {
+            color: var(--dhl-red);
+        }
+        .input-group {
+            margin: 20px 0 16px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #4a5b6e;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 60px;
+            border: 1px solid #cfdfed;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: 0.2s;
+            background: white;
+        }
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--dhl-red);
+            box-shadow: 0 0 0 3px rgba(212,5,17,0.1);
+        }
+        .track-btn, .rate-btn {
+            background: var(--dhl-dark);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+        .track-btn:hover, .rate-btn:hover {
+            background: var(--dhl-red);
+        }
+        .result-area {
+            margin-top: 24px;
+            background: var(--dhl-light-gray);
+            border-radius: 20px;
+            padding: 18px;
+            font-size: 0.95rem;
+        }
+        .status-badge {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .status-delivered { background: #d1fae5; color: #065f46; }
+        .status-transit { background: #fed7aa; color: #9b4d00; }
+        .status-customs { background: #dbeafe; color: #1e40af; }
+        .rate-note {
+            font-size: 0.7rem;
+            margin-top: 12px;
+            color: #6c7e94;
+            text-align: center;
+        }
+
+        /* Contact section */
+        .contact-section {
+            background: var(--dhl-dark);
+            color: white;
+            border-radius: 32px;
+            margin: 40px 0 60px;
+            padding: 48px 40px;
+        }
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .contact-info {
+            flex: 1.2;
+        }
+        .contact-info h3 {
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .contact-detail i {
+            font-size: 1.5rem;
+            width: 36px;
+            color: var(--dhl-yellow);
+        }
+        .contact-detail p, .contact-detail a {
+            color: #e2e8f0;
+            text-decoration: none;
+        }
+        .map-placeholder {
+            flex: 0.9;
+            background: #2b2f32;
+            border-radius: 24px;
+            padding: 24px;
+            text-align: center;
+        }
+        .footer {
+            background: #111314;
+            color: #9aa2aa;
+            padding: 32px 0;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 16px; }
+            .hero h1 { font-size: 2.3rem; }
+            .hero-overlay { padding: 60px 0; }
+            .section { padding: 50px 0; }
+            .container { padding: 0 20px; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .hero { min-height: 70vh; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>OCEAN<span>FREIGHT</span></h1>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#tracking">Track & Rate</a>
+                <a href="#contact" class="contact-btn">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with new rectangular banner image (prrLJ84z) -->
+    <section id="home" class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay">
+            <div class="container">
+                <h1 data-aos="fade-up">Marine Shipping &<br>Smart Logistics</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Global freight solutions from Damietta Port to the world — seamless, secure, and professional.</p>
+                <button class="hero-btn" data-aos="fade-up" data-aos-delay="200" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Core Logistics Solutions</h2>
+            <p class="section-sub" data-aos="fade-up">End-to-end freight & supply chain management</p>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-ship"></i></div>
+                    <h3>Sea Freight</h3>
+                    <p>We provide reliable and cost-effective sea freight solutions for import and export shipments worldwide. Our team ensures secure cargo handling, timely delivery, and complete shipment tracking throughout the transportation process.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="fas fa-passport"></i></div>
+                    <h3>Customs Clearance</h3>
+                    <p>Our customs clearance services help clients navigate import and export regulations efficiently. We manage documentation, customs procedures, and compliance requirements to ensure smooth and hassle-free cargo clearance.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Inland Transportation</h3>
+                    <p>We offer dependable inland transportation services to move goods safely between ports, warehouses, and final destinations. Our logistics network ensures efficient delivery with a focus on speed, security, and reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRACKING CONTAINER & SEA RATE CALCULATOR -->
+    <section id="tracking" class="section" style="padding-top: 0;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Digital Freight Tools</h2>
+            <p class="section-sub" data-aos="fade-up">Track your container in real-time & get instant sea freight estimates</p>
+            <div class="tools-grid">
+                <!-- Container Tracking Card -->
+                <div class="track-card" data-aos="fade-right">
+                    <h3><i class="fas fa-boxes"></i> Track Container</h3>
+                    <p style="margin-bottom: 8px; color: #5a6874;">Enter your container / Bill of Lading number</p>
+                    <div class="input-group">
+                        <input type="text" id="containerNumber" placeholder="e.g., MSCU1234567, OOLU8921345" value="OFL-9842X">
+                    </div>
+                    <button class="track-btn" id="trackBtn"><i class="fas fa-search-location"></i> Track Shipment</button>
+                    <div id="trackResult" class="result-area">
+                        <div style="display: flex; justify-content: space-between;"><span class="status-badge">🔍 Example ready</span> <span><i class="far fa-clock"></i> Live demo</span></div>
+                        <p style="margin-top: 12px;"><strong>Container:</strong> OFL-9842X <br> <strong>Status:</strong> In Transit - Arrived at Damietta Port <br> <strong>ETA:</strong> June 5, 2026<br> <i class="fas fa-map-marker-alt"></i> Last Event: Customs clearance processing</p>
+                    </div>
+                    <p style="font-size: 0.7rem; margin-top: 12px; color: #7c8b9a;">*Demo tracking simulator — shows realistic milestones</p>
+                </div>
+
+                <!-- Sea Freight Rate Estimator -->
+                <div class="rate-card" data-aos="fade-left">
+                    <h3><i class="fas fa-dollar-sign"></i> Sea Freight Rate</h3>
+                    <p style="margin-bottom: 12px; color: #5a6874;">Get instant estimate (USD) — FCL or LCL</p>
+                    
+                    <div class="input-group">
+                        <label><i class="fas fa-anchor"></i> Port of Loading</label>
+                        <select id="originPort">
+                            <option value="Damietta">Damietta Port, Egypt</option>
+                            <option value="Alexandria">Alexandria Port, Egypt</option>
+                            <option value="Sokhna">Sokhna Port, Egypt</option>
+                            <option value="Rotterdam">Rotterdam, Netherlands</option>
+                            <option value="Hamburg">Hamburg, Germany</option>
+                            <option value="Shanghai">Shanghai, China</option>
+                            <option value="Singapore">Singapore</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-flag-checkered"></i> Port of Discharge</label>
+                        <select id="destPort">
+                            <option value="JebelAli">Jebel Ali, UAE</option>
+                            <option value="Rotterdam">Rotterdam, Netherlands</option>
+                            <option value="Hamburg">Hamburg, Germany</option>
+                            <option value="Antwerp">Antwerp, Belgium</option>
+                            <option value="Jeddah">Jeddah, Saudi Arabia</option>
+                            <option value="Shanghai">Shanghai, China</option>
+                            <option value="NewYork">New York, USA</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-cubes"></i> Shipment Type</label>
+                        <select id="containerType">
+                            <option value="20">20ft Standard Container (FCL)</option>
+                            <option value="40">40ft Standard Container (FCL)</option>
+                            <option value="40HC">40ft High Cube (FCL)</option>
+                            <option value="45">45ft Container (FCL)</option>
+                            <option value="loose">Loose / LCL (Less than Container Load) - per CBM</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="cbmGroup" style="display: none;">
+                        <label><i class="fas fa-cube"></i> Volume (CBM) for LCL</label>
+                        <input type="number" id="cbmValue" step="0.5" min="1" value="5" placeholder="Enter cubic meters (e.g., 8)">
+                    </div>
+                    <button class="rate-btn" id="getRateBtn"><i class="fas fa-calculator"></i> Calculate Rate</button>
+                    <div id="rateResult" class="result-area">
+                        <p><strong>💡 Estimated Sea Freight:</strong> USD $1,850 – $2,450 <br> <small>*Based on trade lane & container type (subject to change). Contact us for firm quote.</small></p>
+                    </div>
+                    <div class="rate-note">
+                        <i class="fas fa-ship"></i> FCL = Full Container Load | LCL = Loose/Less Container Load (per CBM)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="container" id="contact">
+        <div class="contact-section" data-aos="fade-up">
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <h3>Connect with our logistics team</h3>
+                    <div class="contact-detail"><i class="fas fa-map-marker-alt"></i><p><strong>Location:</strong> Damietta Port, Egypt</p></div>
+                    <div class="contact-detail"><i class="fas fa-phone-alt"></i><p><strong>Phone:</strong> 01000121437 / 01153288788</p></div>
+                    <div class="contact-detail"><i class="fas fa-envelope"></i><a href="mailto:elnagy.export@outlook.com">elnagy.export@outlook.com</a></div>
+                    <div class="contact-detail"><i class="fas fa-clock"></i><p>24/7 Freight Support & Real-time Tracking</p></div>
+                </div>
+                <div class="map-placeholder">
+                    <i class="fas fa-anchor"></i>
+                    <h4 style="margin: 12px 0; color: var(--dhl-yellow);">Damietta Port Hub</h4>
+                    <p style="font-size: 0.85rem;">Strategic Mediterranean gateway — Serving global trade routes.</p>
+                    <div style="background: #00000030; border-radius: 16px; margin-top: 16px; padding: 10px;">
+                        <i class="fas fa-ship"></i> | <i class="fas fa-truck"></i> | <i class="fas fa-file-invoice"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Ocean Freight Logistics — Modern freight & customs solutions from Damietta Port, Egypt. All rights reserved.</p>
+            <p style="margin-top: 8px;"><i class="fas fa-globe"></i> Sea Freight • Customs Clearance • Inland Transport • Real-time Tracking</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 40 });
+
+        // Hero background now uses the new rectangular image from prrLJ84z
+        // Toggle CBM input for LCL / Loose
+        const containerTypeSelect = document.getElementById('containerType');
+        const cbmGroup = document.getElementById('cbmGroup');
+        const cbmInput = document.getElementById('cbmValue');
+        
+        function toggleCBMField() {
+            const isLoose = containerTypeSelect.value === 'loose';
+            cbmGroup.style.display = isLoose ? 'block' : 'none';
+        }
+        containerTypeSelect.addEventListener('change', toggleCBMField);
+        toggleCBMField();
+
+        // ------------------- CONTAINER TRACKING SIMULATOR -------------------
+        const trackBtn = document.getElementById('trackBtn');
+        const containerInput = document.getElementById('containerNumber');
+        const trackResultDiv = document.getElementById('trackResult');
+
+        const trackingStatuses = {
+            'OFL-9842X': { number: 'OFL-9842X', status: 'In Transit - Arrived at Damietta Port', eta: 'June 5, 2026', lastEvent: 'Customs clearance processing', step: 'customs' },
+            'MSCU1234567': { number: 'MSCU1234567', status: 'Loaded on vessel - Suez Canal transit', eta: 'June 10, 2026', lastEvent: 'Departed from Port Said', step: 'transit' },
+            'OOLU8921345': { number: 'OOLU8921345', status: 'Delivered to consignee', eta: 'Delivered', lastEvent: 'Final delivery completed', step: 'delivered' },
+            'MAEU520111': { number: 'MAEU520111', status: 'At origin warehouse - awaiting stuffing', eta: 'June 12, 2026', lastEvent: 'Booking confirmed', step: 'pending' },
+        };
+
+        function getRandomStatusForDemo(inputNumber) {
+            const val = inputNumber.trim().toUpperCase();
+            if (trackingStatuses[val]) return trackingStatuses[val];
+            const randomStep = Math.floor(Math.random() * 4);
+            let status, eta, lastEvent, stepClass;
+            if (randomStep === 0) { status = 'Booked - Documentation in progress'; eta = 'June 15, 2026'; lastEvent = 'Export customs filed'; stepClass = 'pending'; }
+            else if (randomStep === 1) { status = 'In Transit - Vessel sailing'; eta = 'June 18, 2026'; lastEvent = 'Departed from Damietta'; stepClass = 'transit'; }
+            else if (randomStep === 2) { status = 'Arrived at destination port'; eta = 'June 20, 2026'; lastEvent = 'Awaiting customs clearance'; stepClass = 'customs'; }
+            else { status = 'Delivered'; eta = 'Completed'; lastEvent = 'Signed POD received'; stepClass = 'delivered'; }
+            return { number: val, status, eta, lastEvent, step: stepClass };
+        }
+
+        trackBtn.addEventListener('click', () => {
+            let containerId = containerInput.value.trim();
+            if (containerId === "") {
+                trackResultDiv.innerHTML = `<div style="color:#D40511;"><i class="fas fa-exclamation-triangle"></i> Please enter a container/BL number.</div>`;
+                return;
+            }
+            const trackData = getRandomStatusForDemo(containerId);
+            let badgeClass = "status-transit";
+            if (trackData.step === 'delivered') badgeClass = "status-delivered";
+            if (trackData.step === 'customs') badgeClass = "status-customs";
+            trackResultDiv.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items:center; flex-wrap:wrap;">
+                    <span class="status-badge ${badgeClass}"><i class="fas fa-ship"></i> ${trackData.step === 'delivered' ? 'Completed' : (trackData.step === 'customs' ? 'Customs' : 'Active')}</span>
+                    <span><i class="far fa-calendar-alt"></i> Updated now</span>
+                </div>
+                <p style="margin-top: 16px;"><strong>Container:</strong> ${trackData.number}<br>
+                <strong>Status:</strong> ${trackData.status}<br>
+                <strong>ETA:</strong> ${trackData.eta}<br>
+                <i class="fas fa-info-circle"></i> <strong>Last Event:</strong> ${trackData.lastEvent}</p>
+                <small><i class="fas fa-sync-alt"></i> Real-time tracking demo | For official tracking contact our team.</small>
+            `;
+        });
+
+        // Initial tracking demo
+        window.addEventListener('DOMContentLoaded', () => {
+            const defaultContainer = containerInput.value.trim();
+            if(defaultContainer) {
+                const initData = getRandomStatusForDemo(defaultContainer);
+                let initBadge = "status-transit";
+                if (initData.step === 'delivered') initBadge = "status-delivered";
+                if (initData.step === 'customs') initBadge = "status-customs";
+                trackResultDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between;"><span class="status-badge ${initBadge}">📦 Live demo</span> <span><i class="far fa-clock"></i> Ready</span></div>
+                    <p style="margin-top: 12px;"><strong>Container:</strong> ${initData.number}<br> <strong>Status:</strong> ${initData.status}<br> <strong>ETA:</strong> ${initData.eta}<br> <i class="fas fa-map-marker-alt"></i> Last Event: ${initData.lastEvent}</p>
+                `;
+            }
+        });
+
+        // ------------------- SEA FREIGHT RATE CALCULATOR -------------------
+        const getRateBtn = document.getElementById('getRateBtn');
+        const originSelect = document.getElementById('originPort');
+        const destSelect = document.getElementById('destPort');
+        const rateResultDiv = document.getElementById('rateResult');
+
+        function calculateSeaRate(origin, destination, shipmentType, cbm = null) {
+            const rateMatrix = {
+                'Sokhna-JebelAli': { fcl20: 1450, fcl40: 2450, fcl40HC: 2650, fcl45: 3100, lclPerCbm: 95 },
+                'Damietta-JebelAli': { fcl20: 1550, fcl40: 2580, fcl40HC: 2780, fcl45: 3250, lclPerCbm: 102 },
+                'Alexandria-JebelAli': { fcl20: 1580, fcl40: 2620, fcl40HC: 2820, fcl45: 3300, lclPerCbm: 105 },
+                'Rotterdam-JebelAli': { fcl20: 1850, fcl40: 3150, fcl40HC: 3400, fcl45: 4000, lclPerCbm: 125 },
+                'Hamburg-JebelAli': { fcl20: 1880, fcl40: 3180, fcl40HC: 3450, fcl45: 4050, lclPerCbm: 128 },
+                'Damietta-Rotterdam': { fcl20: 1250, fcl40: 2150, fcl40HC: 2350, fcl45: 2800, lclPerCbm: 85 },
+                'Damietta-Hamburg': { fcl20: 1280, fcl40: 2200, fcl40HC: 2400, fcl45: 2850, lclPerCbm: 88 },
+                'Damietta-Antwerp': { fcl20: 1220, fcl40: 2100, fcl40HC: 2300, fcl45: 2750, lclPerCbm: 82 },
+                'Damietta-Jeddah': { fcl20: 950, fcl40: 1650, fcl40HC: 1800, fcl45: 2200, lclPerCbm: 68 },
+                'Damietta-Shanghai': { fcl20: 2450, fcl40: 4250, fcl40HC: 4600, fcl45: 5400, lclPerCbm: 145 },
+                'Damietta-NewYork': { fcl20: 3200, fcl40: 5100, fcl40HC: 5500, fcl45: 6500, lclPerCbm: 185 },
+                'Alexandria-Rotterdam': { fcl20: 1300, fcl40: 2220, fcl40HC: 2420, fcl45: 2900, lclPerCbm: 90 },
+                'Sokhna-Rotterdam': { fcl20: 1280, fcl40: 2180, fcl40HC: 2380, fcl45: 2850, lclPerCbm: 87 },
+                'Sokhna-Hamburg': { fcl20: 1310, fcl40: 2230, fcl40HC: 2430, fcl45: 2900, lclPerCbm: 89 },
+                'Sokhna-Jeddah': { fcl20: 920, fcl40: 1600, fcl40HC: 1750, fcl45: 2150, lclPerCbm: 65 },
+                'Rotterdam-Shanghai': { fcl20: 2100, fcl40: 3800, fcl40HC: 4100, fcl45: 4900, lclPerCbm: 135 },
+                'Singapore-Rotterdam': { fcl20: 1950, fcl40: 3500, fcl40HC: 3800, fcl45: 4500, lclPerCbm: 120 },
+            };
+            const key = `${origin}-${destination}`;
+            let rates = rateMatrix[key];
+            if (!rates) {
+                rates = { fcl20: 1900, fcl40: 3200, fcl40HC: 3500, fcl45: 4100, lclPerCbm: 110 };
+            }
+            
+            if (shipmentType === 'loose') {
+                let volume = cbm && cbm > 0 ? cbm : 5;
+                let ratePerCbm = rates.lclPerCbm;
+                let minTotal = ratePerCbm * volume * 0.92;
+                let maxTotal = ratePerCbm * volume * 1.12;
+                return { min: Math.floor(minTotal), max: Math.floor(maxTotal), isLcl: true, perCbm: ratePerCbm, volume: volume };
+            } else {
+                let rateValue = 0;
+                if (shipmentType === '20') rateValue = rates.fcl20;
+                else if (shipmentType === '40') rateValue = rates.fcl40;
+                else if (shipmentType === '40HC') rateValue = rates.fcl40HC;
+                else rateValue = rates.fcl45;
+                let variation = Math.floor(Math.random() * 180) + 50;
+                let minRate = rateValue - 120;
+                let maxRate = rateValue + variation;
+                if (minRate < 700) minRate = rateValue - 80;
+                return { min: Math.floor(minRate), max: Math.floor(maxRate), isLcl: false };
+            }
+        }
+
+        getRateBtn.addEventListener('click', () => {
+            const origin = originSelect.value;
+            const destination = destSelect.value;
+            let shipmentType = containerTypeSelect.value;
+            let cbm = null;
+            if (shipmentType === 'loose') {
+                cbm = parseFloat(cbmInput.value);
+                if (isNaN(cbm) || cbm <= 0) cbm = 5;
+            }
+            
+            const rate = calculateSeaRate(origin, destination, shipmentType, cbm);
+            const originLabel = originSelect.options[originSelect.selectedIndex]?.text;
+            const destLabel = destSelect.options[destSelect.selectedIndex]?.text;
+            
+            if (rate.isLcl) {
+                rateResultDiv.innerHTML = `<p><strong>📊 LCL / Loose Freight Estimate (${originLabel} → ${destLabel})</strong><br>
+                💰 <strong>USD $${rate.min} – $${rate.max}</strong><br>
+                📦 Volume: ${rate.volume} CBM @ ~$${rate.perCbm}/CBM rate<br>
+                <small><i class="fas fa-info-circle"></i> Includes basic sea freight, handling, and BAF. LCL consolidation service.<br>
+                📞 Contact us for exact LCL quote and door delivery options.</small></p>`;
+            } else {
+                let containerLabel = containerTypeSelect.options[containerTypeSelect.selectedIndex]?.text;
+                rateResultDiv.innerHTML = `<p><strong>📊 FCL Freight Estimate (${containerLabel})</strong><br>
+                📍 Route: ${originLabel} → ${destLabel}<br>
+                💰 <strong>USD $${rate.min} – $${rate.max}</strong><br>
+                <small><i class="fas fa-ship"></i> Includes ocean freight, documentation, and port charges. For firm pricing, request a quote.<br>
+                <i class="fas fa-headset"></i> Contact our team for exact rates and special equipment.</small></p>`;
+            }
+        });
+
+        // Set default to Sokhna -> Jebel Ali example on load
+        setTimeout(() => {
+            originSelect.value = "Sokhna";
+            destSelect.value = "JebelAli";
+            containerTypeSelect.value = "20";
+            toggleCBMField();
+            const initRate = calculateSeaRate("Sokhna", "JebelAli", "20", null);
+            rateResultDiv.innerHTML = `<p><strong>💡 Estimated Sea Freight (20ft Standard)</strong><br>📍 Sokhna Port → Jebel Ali, UAE<br>💰 USD $${initRate.min} – $${initRate.max}<br><small>Includes ocean freight. Contact us for LCL rates or special requirements.</small></p>`;
+        }, 200);
+    </script>
+</body>
+</html>
